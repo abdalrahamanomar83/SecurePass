@@ -1,0 +1,252 @@
+:root {
+	/* Color Palette */
+	--bg-dark: #0a0f1a;
+	--card-bg: #131b2f;
+	--card-border: #1e2946;
+	--neon-blue: #00f0ff;
+	--neon-blue-glow: rgba(0, 240, 255, 0.4);
+	--text-main: #f8fafc;
+	--text-muted: #94a3b8;
+	
+	/* Strength Colors */
+	--strength-weak: #ef4444;
+	--strength-medium: #f59e0b;
+	--strength-strong: #10b981;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+}
+
+body {
+	background-color: var(--bg-dark);
+	color: var(--text-main);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 20px;
+}
+
+.container {
+	width: 100%;
+	max-width: 420px;
+}
+
+.hero {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.hero h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+.hero h1 span {
+	color: var(--neon-blue);
+	text-shadow: 0 0 15px var(--neon-blue-glow);
+}
+
+.hero p {
+	color: var(--text-muted);
+	font-size: 0.95rem;
+	margin-top: 5px;
+}
+
+.card {
+	background-color: var(--card-bg);
+	border: 1px solid var(--card-border);
+	border-radius: 16px;
+	padding: 24px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.output-group {
+	display: flex;
+	background: rgba(0, 0, 0, 0.2);
+	border: 1px solid var(--card-border);
+	border-radius: 8px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	transition: border-color 0.3s ease;
+}
+
+.output-group:focus-within {
+	border-color: var(--neon-blue);
+	box-shadow: 0 0 10px var(--neon-blue-glow);
+}
+
+#password-output {
+flex: 1;
+background: transparent;
+border: none;
+color: var(--neon-blue);
+font-size: 1.25rem;
+padding: 16px;
+outline: none;
+letter-spacing: 1px;
+}
+
+#copy-btn {
+background: transparent;
+border: none;
+color: var(--text-muted);
+padding: 0 16px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+#copy-btn:hover {
+color: var(--neon-blue);
+}
+
+.strength-group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	font-size: 0.9rem;
+}
+
+.strength-label {
+	color: var(--text-muted);
+}
+
+.strength-indicator {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#strength-text {
+font-weight: 600;
+text-transform: uppercase;
+}
+
+.strength-bars {
+	display: flex;
+	gap: 4px;
+}
+
+.bar {
+	width: 20px;
+	height: 6px;
+	border-radius: 3px;
+	background-color: var(--card-border);
+	transition: background-color 0.4s ease;
+}
+
+.divider {
+	height: 1px;
+	background-color: var(--card-border);
+	margin: 20px 0;
+}
+
+.setting-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.length-group label {
+	font-weight: 500;
+}
+
+.length-group input {
+	width: 60px;
+	background: rgba(0, 0, 0, 0.2);
+	border: 1px solid var(--card-border);
+	color: var(--text-main);
+	padding: 8px;
+	border-radius: 6px;
+	text-align: center;
+	outline: none;
+	font-size: 1rem;
+	transition: all 0.3s ease;
+}
+
+.length-group input:focus {
+	border-color: var(--neon-blue);
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	font-size: 0.95rem;
+	color: var(--text-main);
+	user-select: none;
+}
+
+.custom-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkmark {
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	border: 2px solid var(--card-border);
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+	background-color: var(--neon-blue);
+	border-color: var(--neon-blue);
+	box-shadow: 0 0 8px var(--neon-blue-glow);
+}
+
+.checkmark:after {
+	content: "";
+	display: none;
+	width: 4px;
+	height: 10px;
+	border: solid var(--bg-dark);
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.primary-btn {
+	width: 100%;
+	background-color: transparent;
+	color: var(--neon-blue);
+	border: 1px solid var(--neon-blue);
+	padding: 16px;
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 8px;
+	cursor: pointer;
+	margin-top: 10px;
+	transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+	background-color: var(--neon-blue);
+	color: var(--bg-dark);
+	box-shadow: 0 0 20px var(--neon-blue-glow);
+}
+
+.primary-btn:active {
+	transform: scale(0.98);
+}
